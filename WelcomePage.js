@@ -14,19 +14,12 @@ export default class Homescreen extends Component {
     this.setState({
       selectedValue: itemValue
     })
-
-    // fix the problem with name 
-    //if (itemValue === "de" ) { setItemLabel("German")}
-    //  else if (itemValue === "es" ) { setItemLabel("Spanish")}
-    // else if (itemValue === "it" ) { setItemLabel("Italian")}
-    //  else if (itemValue === "sq" ) { setItemLabel("Albanian")}      
-
     Alert.alert(
       '',
       'The language you choosed is: ' + itemValue,
       [
         { text: 'Cancel', onPress: () => console.log('Cancel Pressed!') },
-        { text: 'Continue', onPress: () => this.props.navigation.navigate('CameraComponent') },
+        { text: 'Continue', onPress: () => {this.props.navigation.navigate('CameraComponent',{selectedValue:itemValue})}},
       ],
       { cancelable: false }
     )
